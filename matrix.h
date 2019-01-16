@@ -56,6 +56,7 @@ class Matrix
         }
         throw "Requested indices out of bound\n";
     }
+
 };
 
 
@@ -79,7 +80,7 @@ Matrix<R,C,T> operator+(const Matrix<R,C,T>& matrix1, const Matrix<R,C,T>& matri
     Matrix<R,C,T> out;
     for(unsigned i = 0; i < R*C; i++)
     {
-        out(i) = matrix1(i) + matrix1(i);
+        out(i) = matrix1(i) + matrix2(i);
     }
     return out;    
 }
@@ -102,5 +103,8 @@ Matrix<dimA,dimC,T> operator*(const Matrix<dimA,dimB,T>& matrix1, const Matrix<d
     }
     return out;    
 }
+
+template<unsigned dim, class T>
+using Vettore = Matrix<dim,1,T>;
 
 #endif
